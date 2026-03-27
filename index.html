@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleiton Gabriel Rosa — Advocacia e Consultoria Jurídica</title>
+  <meta name="description" content="Escritório de advocacia com atuação em Direito Previdenciário, Trabalhista e Criminal. Atendimento humanizado e comprometido com seus direitos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #080808;
+      --black-mid:  #111111;
+      --black-soft: #1c1c1c;
+      --black-card: #161616;
+      --gold:       #c8a951;
+      --gold-light: #e0c47a;
+      --gold-dim:   #9a7d38;
+      --gold-pale:  #f0e0b0;
+      --white:      #f2ede3;
+      --text:       #d8d2c8;   /* texto corrido — bem legível no preto */
+      --gray:       #9e9890;   /* secundário — mais claro que antes */
+      --border:     rgba(200,169,81,0.18);
+      --ff-serif:   'Playfair Display', Georgia, serif;
+      --ff-sans:    'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      line-height: 1.78;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 6%;
+      transition: padding .35s, background .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(18px);
+      padding: .8rem 6%;
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+
+    .nav-logo img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity .2s;
+    }
+
+    .nav-logo img:hover { opacity: .8; }
+
+    .nav-links { display: flex; gap: 2.8rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      border: 1px solid var(--gold) !important;
+      color: var(--gold) !important;
+      padding: .4rem 1.3rem;
+      transition: background .2s, color .2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 9rem 6% 6rem;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 18%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
+      opacity: .18;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 80% 50%, rgba(200,169,81,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      display: block;
+      width: clamp(200px, 30vw, 430px);
+      margin-bottom: 2.4rem;
+      animation: fadeUp .9s ease both;
+      filter: drop-shadow(0 0 50px rgba(200,169,81,.15));
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeUp .9s .05s ease both;
+    }
+
+    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+
+    .hero-eyebrow-text {
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.06;
+      color: var(--white);
+      max-width: 800px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp .9s .1s ease both;
+    }
+
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    .hero-body {
+      font-size: 1.05rem;
+      color: var(--text);
+      max-width: 500px;
+      line-height: 1.9;
+      margin-bottom: 3.2rem;
+      font-weight: 300;
+      animation: fadeUp .9s .18s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      animation: fadeUp .9s .26s ease both;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      padding: 1rem 2.6rem;
+      border: none;
+      font-family: var(--ff-sans);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .25s, transform .2s;
+      display: inline-block;
+    }
+
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.6rem;
+      border: 1px solid rgba(242,237,227,.25);
+      font-family: var(--ff-sans);
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color .2s, color .2s, transform .2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem; left: 6%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      animation: fadeUp .9s .5s ease both;
+    }
+
+    .scroll-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease infinite;
+    }
+
+    .scroll-track { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+
+    /* ─── MARQUEE ─── */
+    .marquee-strip {
+      overflow: hidden;
+      background: var(--gold);
+      padding: .72rem 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0 2.5rem;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(0,0,0,.3); flex-shrink: 0; }
+
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── COMPARTILHADOS ─── */
+    .container { max-width: 1160px; margin: 0 auto; }
+
+    .eyebrow { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
+    .eyebrow-line { width: 30px; height: 1px; background: var(--gold); }
+    .eyebrow-text { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .section-lead { color: var(--text); font-size: .97rem; line-height: 1.9; }
+
+    /* ─── ÁREAS ─── */
+    #areas { padding: 8rem 6%; background: var(--black-mid); }
+
+    .areas-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .area-card {
+      background: var(--black-card);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background .35s;
+    }
+
+    .area-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .area-card:hover { background: var(--black-soft); }
+    .area-card:hover::after { transform: scaleX(1); }
+
+    .area-num {
+      font-family: var(--ff-serif);
+      font-size: .78rem;
+      color: var(--gold-dim);
+      letter-spacing: .1em;
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+
+    .area-name {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      color: var(--gold-pale);
+      margin-bottom: .9rem;
+      line-height: 1.3;
+    }
+
+    .area-desc { font-size: .88rem; color: var(--text); line-height: 1.9; }
+
+    .area-featured {
+      background: linear-gradient(135deg, rgba(200,169,81,.08) 0%, var(--black-card) 60%);
+      border-top: 1px solid rgba(200,169,81,.25);
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre {
+      padding: 8rem 6%;
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .sobre-img { position: relative; }
+
+    .sobre-frame {
+      aspect-ratio: 4/5;
+      background: var(--black-soft);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-frame img.foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      /* overlay suave para harmonizar com o fundo escuro */
+      filter: brightness(.95) contrast(1.02);
+    }
+
+    /* gradiente sutil na base para fundir com a seção */
+    .sobre-frame::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 28%;
+      background: linear-gradient(to top, var(--black) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .sobre-corner {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 80px; height: 80px;
+      border: 1px solid var(--border);
+    }
+
+    .sobre-badge {
+      position: absolute;
+      top: 1.5rem; left: -1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .5rem .9rem;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      z-index: 2;
+    }
+
+    .sobre-oab {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(200,169,81,.07);
+      border: 1px solid var(--border);
+      padding: .45rem 1rem;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+
+    .sobre-text p {
+      color: var(--text);
+      font-size: .92rem;
+      line-height: 1.95;
+      margin-bottom: 1.2rem;
+    }
+
+    .valores-row {
+      display: flex;
+      margin-top: 2.8rem;
+      border: 1px solid var(--border);
+    }
+
+    .valor { flex: 1; padding: 1.2rem; border-right: 1px solid var(--border); text-align: center; }
+    .valor:last-child { border-right: none; }
+    .valor-n { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .3rem; }
+    .valor-v { font-family: var(--ff-serif); font-size: 1rem; color: var(--gold-pale); }
+
+    /* ─── CONTATO ─── */
+    #contato { padding: 8rem 6%; background: var(--black-mid); }
+
+    .contato-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7rem;
+      align-items: start;
+    }
+
+    .contato-channels { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
+
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      padding: 1.4rem 1.8rem;
+      border: 1px solid var(--border);
+      background: var(--black-card);
+      text-decoration: none;
+      transition: border-color .25s, background .25s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .channel::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .3s ease;
+    }
+
+    .channel:hover { border-color: rgba(200,169,81,.4); background: var(--black-soft); transform: translateX(4px); }
+    .channel:hover::before { transform: scaleY(1); }
+
+    .channel-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .channel-label { font-size: .63rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .25rem; }
+    .channel-value { font-size: .95rem; color: var(--white); font-weight: 400; }
+    .channel-arrow { margin-left: auto; color: var(--gold); opacity: 0; transition: opacity .2s, transform .2s; }
+    .channel:hover .channel-arrow { opacity: 1; transform: translateX(4px); }
+
+    /* form */
+    .form-box {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      padding: 3rem;
+    }
+
+    .form-box-title { font-family: var(--ff-serif); font-size: 1.55rem; color: var(--gold-pale); margin-bottom: .4rem; }
+    .form-box-sub { font-size: .84rem; color: var(--gray); margin-bottom: 2.4rem; }
+
+    .fg { margin-bottom: 1.3rem; }
+
+    .fg label {
+      display: block;
+      font-size: .63rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: .5rem;
+    }
+
+    .fg input, .fg select, .fg textarea {
+      width: 100%;
+      background: rgba(8,8,8,.75);
+      border: 1px solid rgba(200,169,81,.14);
+      color: var(--white);
+      font-family: var(--ff-sans);
+      font-size: .9rem;
+      padding: .88rem 1rem;
+      outline: none;
+      transition: border-color .2s;
+      resize: none;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .fg input::placeholder, .fg textarea::placeholder { color: var(--gray); opacity: .5; }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+    .fg select option { background: #131313; color: var(--white); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 1.1rem;
+      font-family: var(--ff-sans);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .25s, transform .2s;
+      margin-top: .4rem;
+    }
+
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 2.8rem 6%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-logo img { height: 54px; width: auto; object-fit: contain; }
+
+    .footer-center {
+      text-align: center;
+      font-size: .72rem;
+      color: var(--gray);
+      letter-spacing: .08em;
+    }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    .footer-links a {
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ─── WA FLOAT ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 999;
+      background: #25d366;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.3);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(37,211,102,.48); }
+    .wa-float svg { width: 26px; height: 26px; fill: white; }
+
+    /* ─── ANIMAÇÕES ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .1s; }
+    .reveal.d2 { transition-delay: .2s; }
+    .reveal.d3 { transition-delay: .3s; }
+
+    /* ─── RESPONSIVO ─── */
+    @media (max-width: 960px) {
+      .areas-top { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      #sobre { grid-template-columns: 1fr; gap: 3rem; }
+      .sobre-img { max-width: 400px; }
+      .contato-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { justify-content: center; }
+      .footer-logo { display: flex; justify-content: center; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.6rem; }
+      .hero-actions { flex-direction: column; }
+      .btn-gold, .btn-ghost { text-align: center; }
+      .form-box { padding: 2rem 1.4rem; }
+      #areas, #sobre, #contato { padding: 5rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <img src="logo.png" alt="Cleiton Gabriel Rosa — Advocacia e Consultoria Jurídica" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#sobre">O Escritório</a></li>
+    <li><a href="#contato" class="nav-cta">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <img src="logo.png" alt="Logotipo Cleiton Gabriel Rosa" class="hero-logo" />
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span class="hero-eyebrow-text">Advocacia &amp; Consultoria Jurídica — Matão, SP</span>
+  </div>
+  <h1 class="hero-title">
+    Seus direitos<br />defendidos com<br /><em>rigor e dedicação.</em>
+  </h1>
+  <p class="hero-body">
+    O escritório Cleiton Gabriel Rosa atua com técnica e compromisso humano nas áreas Previdenciária, Trabalhista, Criminal e muito mais. Entre em contato e agende sua consulta.
+  </p>
+  <div class="hero-actions">
+    <a href="https://wa.me/551620162144" target="_blank" class="btn-gold">Fale pelo WhatsApp</a>
+    <a href="#areas" class="btn-ghost">Nossas Áreas</a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Direito Previdenciário<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Trabalhista<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Criminal<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Consultoria Jurídica<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Civil<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito de Família<span class="marquee-dot"></span></span>
+    <span class="marquee-item">OAB 538.386/SP<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Previdenciário<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Trabalhista<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Criminal<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Consultoria Jurídica<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito Civil<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Direito de Família<span class="marquee-dot"></span></span>
+    <span class="marquee-item">OAB 538.386/SP<span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ÁREAS -->
+<section id="areas">
+  <div class="container">
+    <div class="areas-top">
+      <div class="reveal">
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Especialidades</span></div>
+        <h2 class="section-title">Áreas de<br />Atuação</h2>
+      </div>
+      <p class="section-lead reveal d1" style="max-width:420px;padding-bottom:.5rem">
+        Atendimento personalizado em diversas áreas do direito, com foco nas necessidades de cada cliente e respeito às normas éticas da advocacia.
+      </p>
+    </div>
+
+    <div class="areas-grid">
+      <div class="area-card area-featured reveal">
+        <span class="area-num">01</span>
+        <div class="area-name">Direito Previdenciário</div>
+        <p class="area-desc">Assessoria em aposentadorias, pensão por morte, benefício por incapacidade, BPC/LOAS e revisão de benefícios junto ao INSS.</p>
+      </div>
+      <div class="area-card area-featured reveal d1">
+        <span class="area-num">02</span>
+        <div class="area-name">Direito Trabalhista</div>
+        <p class="area-desc">Atuação em rescisão contratual, horas extras, assédio moral, reconhecimento de vínculo empregatício, FGTS e verbas rescisórias.</p>
+      </div>
+      <div class="area-card area-featured reveal d2">
+        <span class="area-num">03</span>
+        <div class="area-name">Direito Criminal</div>
+        <p class="area-desc">Defesa criminal, habeas corpus, liberdade provisória, revisão criminal e acompanhamento em inquéritos policiais com atuação técnica e sigilosa.</p>
+      </div>
+      <div class="area-card reveal">
+        <span class="area-num">04</span>
+        <div class="area-name">Consultoria Jurídica</div>
+        <p class="area-desc">Análise de contratos, pareceres jurídicos e orientação sobre riscos legais para pessoas físicas e jurídicas.</p>
+      </div>
+      <div class="area-card reveal d1">
+        <span class="area-num">05</span>
+        <div class="area-name">Direito Civil</div>
+        <p class="area-desc">Ações de cobrança, responsabilidade civil, questões imobiliárias e reparação de danos com segurança jurídica.</p>
+      </div>
+      <div class="area-card reveal d2">
+        <span class="area-num">06</span>
+        <div class="area-name">Direito de Família</div>
+        <p class="area-desc">Divórcio, guarda de filhos, alimentos, inventário e partilha de bens, conduzidos com discrição e atenção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-img reveal">
+    <div class="sobre-badge">Advocacia</div>
+    <div class="sobre-frame">
+      <img src="foto.png" alt="Dr. Cleiton Gabriel Rosa" class="foto" />
+    </div>
+    <div class="sobre-corner"></div>
+  </div>
+
+  <div class="sobre-text">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span class="eyebrow-text">O Escritório</span></div>
+    <h2 class="section-title reveal">Advocacia com<br /><em style="font-style:italic;color:var(--gold)">propósito e técnica</em></h2>
+
+    <div class="sobre-oab reveal">⚖️ &nbsp; OAB/SP 538.386</div>
+
+    <p class="reveal">
+      O Dr. Cleiton Gabriel Rosa constitui seu escritório com o compromisso de oferecer assessoria jurídica séria e acessível, pautada pela ética, pela transparência e pelo respeito ao cliente em todas as etapas do processo.
+    </p>
+    <p class="reveal">
+      Com atuação nas áreas Previdenciária, Trabalhista e Criminal, o escritório alia conhecimento técnico ao acompanhamento próximo de cada caso, mantendo o cliente informado do início ao fim.
+    </p>
+    <p class="reveal">
+      Mais do que resolver questões jurídicas, o trabalho aqui é orientado pela responsabilidade de cuidar de direitos reais, que afetam vidas reais.
+    </p>
+
+    <div class="valores-row reveal">
+      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Ética</div></div>
+      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Transparência</div></div>
+      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Dedicação</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner container">
+    <div>
+      <div class="eyebrow reveal"><div class="eyebrow-line"></div><span class="eyebrow-text">Contato</span></div>
+      <h2 class="section-title reveal">Fale com o<br /><em style="font-style:italic;color:var(--gold)">escritório</em></h2>
+      <p class="section-lead reveal" style="max-width:380px">
+        Entre em contato para expor seu caso. O atendimento é realizado com atenção e discrição.
+      </p>
+
+      <div class="contato-channels">
+        <a href="https://wa.me/551620162144" target="_blank" class="channel reveal">
+          <span class="channel-icon">💬</span>
+          <div>
+            <div class="channel-label">WhatsApp</div>
+            <div class="channel-value">(16) 2016-2144</div>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="mailto:cleitonrosa@adv.oabsp.org.br" class="channel reveal d1">
+          <span class="channel-icon">✉️</span>
+          <div>
+            <div class="channel-label">E-mail</div>
+            <div class="channel-value">cleitonrosa@adv.oabsp.org.br</div>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="https://instagram.com/cleitongabriel.adv" target="_blank" class="channel reveal d2">
+          <span class="channel-icon">📸</span>
+          <div>
+            <div class="channel-label">Instagram</div>
+            <div class="channel-value">@cleitongabriel.adv</div>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-box reveal d1">
+      <div class="form-box-title">Envie uma mensagem</div>
+      <div class="form-box-sub">Preencha abaixo — o retorno será feito pelo WhatsApp ou e-mail.</div>
+      <form onsubmit="handleForm(event)">
+        <div class="fg">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Seu nome" required />
+        </div>
+        <div class="fg">
+          <label>WhatsApp</label>
+          <input type="tel" placeholder="(00) 0 0000-0000" />
+        </div>
+        <div class="fg">
+          <label>Área de interesse</label>
+          <select>
+            <option value="">Selecione...</option>
+            <option>Direito Previdenciário (INSS)</option>
+            <option>Direito Trabalhista</option>
+            <option>Direito Criminal</option>
+            <option>Direito Civil</option>
+            <option>Direito de Família</option>
+            <option>Consultoria Jurídica</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Descreva brevemente seu caso</label>
+          <textarea rows="4" placeholder="Conte-nos um pouco sobre a situação..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar pelo WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Cleiton Gabriel Rosa Advocacia" />
+  </div>
+  <div class="footer-center">
+    © 2025 · Cleiton Gabriel Rosa · OAB/SP 538.386 · Todos os direitos reservados
+  </div>
+  <div class="footer-links">
+    <a href="#areas">Áreas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/551620162144" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.535 5.876L.057 23.43a.5.5 0 0 0 .612.612l5.645-1.479A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.042-1.374l-.361-.214-3.741.98.998-3.648-.235-.374A9.865 9.865 0 0 1 2.118 12C2.118 6.534 6.534 2.118 12 2.118S21.882 6.534 21.882 12 17.466 21.882 12 21.882z"/>
+  </svg>
+</a>
+
+<script>
+  // Nav shrink on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form → WhatsApp
+  function handleForm(e) {
+    e.preventDefault();
+    const f    = e.target;
+    const nome = f.querySelector('input[type=text]').value;
+    const tel  = f.querySelector('input[type=tel]').value;
+    const area = f.querySelector('select').value;
+    const msg  = f.querySelector('textarea').value;
+    const text = `Olá, Dr. Cleiton! Me chamo *${nome}*.\n📋 *Área:* ${area || 'Não informada'}\n📞 *Telefone:* ${tel || 'Não informado'}\n💬 *Mensagem:* ${msg}`;
+    window.open(`https://wa.me/551620162144?text=${encodeURIComponent(text)}`, '_blank');
+  }
+</script>
+</body>
+</html>
