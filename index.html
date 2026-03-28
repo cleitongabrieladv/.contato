@@ -1,1155 +1,392 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cleiton Gabriel Rosa — Advocacia e Consultoria Jurídica</title>
-  <meta name="description" content="Escritório de advocacia com atuação em Direito Previdenciário, Trabalhista e Criminal. Atendimento humanizado e comprometido com seus direitos." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-    font-size: 16px;
-      }
-
-    :root {
-      --black:      #080808;
-      --black-mid:  #111111;
-      --black-soft: #1c1c1c;
-      --black-card: #161616;
-      --gold:       #c8a951;
-      --gold-light: #e0c47a;
-      --gold-dim:   #9a7d38;
-      --gold-pale:  #f0e0b0;
-      --white:      #f2ede3;
-      --text:       #d8d2c8;   /* texto corrido — bem legível no preto */
-      --gray:       #9e9890;   /* secundário — mais claro que antes */
-      --border:     rgba(200,169,81,0.18);
-      --ff-serif:   'Playfair Display', Georgia, serif;
-      --ff-sans:    'Jost', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--text);
-      font-family: var(--ff-sans);
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 6%;
-      transition: padding .35s, background .35s, border-color .35s;
-      border-bottom: 1px solid transparent;
-    }
-
-    nav.scrolled {
-      background: rgba(8,8,8,0.95);
-      backdrop-filter: blur(18px);
-      padding: .8rem 6%;
-      border-bottom-color: var(--border);
-    }
-
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-
-    .nav-logo img {
-      height: 46px;
-      width: auto;
-      object-fit: contain;
-      transition: opacity .2s;
-    }
-
-    .nav-logo img:hover { opacity: .8; }
-
-    .nav-links { display: flex; gap: 2.8rem; list-style: none; }
-
-    .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: .75rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    .nav-cta {
-      border: 1px solid var(--gold) !important;
-      color: var(--gold) !important;
-      padding: .4rem 1.3rem;
-      transition: background .2s, color .2s !important;
-    }
-
-    .nav-cta:hover {
-      background: var(--gold) !important;
-      color: var(--black) !important;
-    }
-
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      padding: 7rem 6% 4rem;
-      overflow: hidden;
-    }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 18%;
-      width: 1px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
-      opacity: .18;
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 55% 70% at 80% 50%, rgba(200,169,81,.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-logo {
-      display: block;
-      width: clamp(200px, 30vw, 400px);
-      margin: 0 auto 2.4rem auto; /* centraliza horizontalmente */
-      animation: fadeUp .9s ease both;
-      filter: drop-shadow(0 0 50px rgba(200,169,81,.15));
-    }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      animation: fadeUp .9s .05s ease both;
-    }
-
-    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
-
-    .hero-eyebrow-text {
-      font-size: .7rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .hero-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--white);
-      max-width: 800px;
-      text-align: center;
-      margin: 0 auto 1.2rem;
-      animation: fadeUp .9s .1s ease both;
-    }
-
-    .hero-title em { font-style: italic; color: var(--gold); }
-
-    /*.hero-body {
-      font-size: 0.92rem;
-      color: var(--text);
-      max-width: 820px;
-      line-height: 1.5;
-      margin: 0 auto 2rem auto;
-      font-weight: 300;
-      animation: fadeUp .9s .18s ease both;
-    } */
-     .hero-body {
-  font-size: 1.05rem;
-  color: var(--text);
-  max-width: 720px; /* bem mais horizontal */
-  line-height: 1.6; /* menos “alto” */
-  margin: 0 auto 1.8rem; /* reduz espaço vertical */
-  font-weight: 300;
-  animation: fadeUp .9s .18s ease both;
-  text-align: center; /* melhora estética com logo centralizada */
-     }
-
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      animation: fadeUp .9s .26s ease both;
-    }
-
-    .hero-proof {
-  margin-top: 1.2rem;
-  font-size: .90rem;
-  color: var(--gray);
-  letter-spacing: .05em;
-  text-align: center;
-    }
-
-   .hero-inner {
-  text-align: center;
-    } 
-
-    .sobre-highlight {
-  color: var(--gold-pale);
-  font-size: .95rem;
-  margin-bottom: 1.5rem;
-  max-width: 420px;
-    }
-
-    .btn-gold {
-  box-shadow: 0 6px 24px rgba(200,169,81,.25);
-    }
-
-.btn-gold:hover {
-  transform: translateY(-3px) scale(1.02);
-    }
-
-    #wa-chat {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  z-index: 998;
-  font-family: var(--ff-sans);
-    }
-
-.wa-chat-box {
-  width: 340px;
-  background: var(--black-card);
-  border: 1px solid var(--border);
-  font-size: 0.95rem;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,.4);
-  display: none;
-  animation: fadeUp .6s ease;
-    }
-
-.wa-chat-header {
-  background: var(--gold);
-  color: var(--black);
-  padding: .8rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: .8rem;
-    }
-
-.wa-chat-header button {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-    }
-
-.wa-chat-body {
-  padding: 1rem;
-  font-size: .95rem;
-  color: var(--text);
-  line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  gap: .6rem;
-    }
-
-    .msg {
-  background: rgba(255,255,255,0.04);
-  padding: .5rem .7rem;
-  border-radius: 6px;
-  max-width: 85%;
-    }
-
-.msg.bot {
-  align-self: flex-start;
-    }
-
-.typing {
-  font-size: .8rem;
-  color: var(--gray);
-  font-style: italic;
-  opacity: .7;
-    }
-
-.wa-chat-direct {
-  border-top: 1px solid var(--border);
-  padding: .6rem;
-  text-align: center;
-    }
-
-.wa-chat-direct button {
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  padding: .5rem .8rem;
-  font-size: .7rem;
-  cursor: pointer;
-  transition: all .2s;
-    }
-
-.wa-chat-direct button:hover {
-  background: var(--gold);
-  color: var(--black);
-    }
-
-.wa-chat-footer {
-  display: flex;
-  border-top: 1px solid var(--border);
-    }
-
-.wa-chat-footer input {
-  flex: 1;
-  padding: .8rem;
-  border: none;
-  background: transparent;
-  color: var(--white);
-  font-size: .8rem;
-    }
-
-.wa-chat-footer button {
-  background: var(--gold);
-  border: none;
-  padding: 0 1rem;
-  cursor: pointer;
-  font-size: .9rem;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--black);
-      padding: 0.9rem 1.4rem;
-      border: none;
-      font-family: var(--ff-sans);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-decoration: none;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .25s, transform .2s;
-      display: inline-block;
-    }
-
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--white);
-      padding: 1rem 2.6rem;
-      border: 1px solid rgba(242,237,227,.25);
-      font-family: var(--ff-sans);
-      font-size: .78rem;
-      font-weight: 400;
-      letter-spacing: .18em;
-      text-decoration: none;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: border-color .2s, color .2s, transform .2s;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-    /*.scroll-indicator {
-      position: absolute;
-      bottom: 2.5rem; left: 6%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .4rem;
-      animation: fadeUp .9s .5s ease both;
-    }*/
-
-    .scroll-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse 2s ease infinite;
-    }
-
-    * {
-  -webkit-tap-highlight-color: transparent;
-      }
-
-    .scroll-track { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
-
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
-
-    /* ─── MARQUEE ─── */
-    .marquee-strip {
-      overflow: hidden;
-      background: var(--gold);
-      padding: .72rem 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 32s linear infinite;
-    }
-
-    .marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      padding: 0 2.5rem;
-      font-size: .68rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--black);
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(0,0,0,.3); flex-shrink: 0; }
-
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ─── COMPARTILHADOS ─── */
-    .container { max-width: 1160px; margin: 0 auto; }
-
-    .eyebrow { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
-    .eyebrow-line { width: 30px; height: 1px; background: var(--gold); }
-    .eyebrow-text { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
-
-    .section-title {
-      font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--white);
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-
-    .section-lead { color: var(--text); font-size: .97rem; line-height: 1.9; text-align: left; }
-
-    /* ─── ÁREAS ─── */
-    #areas { padding: 8rem 6%; background: var(--black-mid); }
-
-    .areas-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: end;
-      margin-bottom: 4rem;
-    }
-
-    .areas-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .area-card {
-      background: var(--black-card);
-      padding: 2.8rem 2.2rem;
-      position: relative;
-      overflow: hidden;
-      transition: background .35s;
-    }
-
-    .area-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s ease;
-    }
-
-    .area-card:hover { background: var(--black-soft); }
-    .area-card:hover::after { transform: scaleX(1); }
-
-    .area-num {
-      font-family: var(--ff-serif);
-      font-size: .78rem;
-      color: var(--gold-dim);
-      letter-spacing: .1em;
-      margin-bottom: 1.4rem;
-      display: block;
-    }
-
-    .area-name {
-      font-family: var(--ff-serif);
-      font-size: 1.25rem;
-      color: var(--gold-pale);
-      margin-bottom: .9rem;
-      line-height: 1.3;
-    }
-
-    .area-desc { font-size: .95rem; color: var(--text); line-height: 1.6; }
-
-    .area-featured {
-      background: linear-gradient(135deg, rgba(200,169,81,.08) 0%, var(--black-card) 60%);
-      border-top: 1px solid rgba(200,169,81,.25);
-    }
-
-    /* ─── SOBRE ─── */
-    #sobre {
-      padding: 8rem 6%;
-      background: var(--black);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .sobre-img { position: relative; }
-
-
-    .sobre-frame {
-      aspect-ratio: 4/5;
-      background: var(--black-soft);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sobre-frame img.foto {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      /* overlay suave para harmonizar com o fundo escuro */
-      filter: brightness(.95) contrast(1.02);
-    }
-
-    /* gradiente sutil na base para fundir com a seção */
-    .sobre-frame::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 28%;
-      background: linear-gradient(to top, var(--black) 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .sobre-corner {
-      position: absolute;
-      bottom: -16px; right: -16px;
-      width: 80px; height: 80px;
-      border: 1px solid var(--border);
-    }
-
-    .sobre-badge {
-      position: absolute;
-      top: 1.5rem; left: -1.5rem;
-      background: var(--gold);
-      color: var(--black);
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: .5rem .9rem;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
-      z-index: 2;
-    }
-
-    .sobre-oab {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      background: rgba(200,169,81,.07);
-      border: 1px solid var(--border);
-      padding: .45rem 1rem;
-      font-size: .7rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.6rem;
-    }
-
-    .sobre-text p {
-      color: var(--text);
-      font-size: .92rem;
-      line-height: 1.95;
-      margin-bottom: 1.2rem;
-    }
-
-    .valores-row {
-      display: flex;
-      margin-top: 2.8rem;
-      border: 1px solid var(--border);
-    }
-
-    .valor { flex: 1; padding: 1.2rem; border-right: 1px solid var(--border); text-align: center; }
-    .valor:last-child { border-right: none; }
-    .valor-n { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .3rem; }
-    .valor-v { font-family: var(--ff-serif); font-size: 1rem; color: var(--gold-pale); }
-
-    /* ─── CONTATO ─── */
-    #contato { padding: 8rem 6%; background: var(--black-mid); }
-
-    .contato-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7rem;
-      align-items: start;
-    }
-
-    .contato-channels { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
-
-    .channel {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      padding: 1.4rem 1.8rem;
-      border: 1px solid var(--border);
-      background: var(--black-card);
-      text-decoration: none;
-      transition: border-color .25s, background .25s, transform .2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .channel::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: var(--gold);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .3s ease;
-    }
-
-    .channel:hover { border-color: rgba(200,169,81,.4); background: var(--black-soft); transform: translateX(4px); }
-    .channel:hover::before { transform: scaleY(1); }
-
-    .channel-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .channel-label { font-size: .63rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .25rem; }
-    .channel-value { font-size: .95rem; color: var(--white); font-weight: 400; }
-    .channel-arrow { margin-left: auto; color: var(--gold); opacity: 0; transition: opacity .2s, transform .2s; }
-    .channel:hover .channel-arrow { opacity: 1; transform: translateX(4px); }
-
-    /* form */
-    .form-box {
-      background: var(--black-card);
-      border: 1px solid var(--border);
-      padding: 3rem;
-    }
-
-    .form-box-title { font-family: var(--ff-serif); font-size: 1.55rem; color: var(--gold-pale); margin-bottom: .4rem; }
-    .form-box-sub { font-size: .84rem; color: var(--gray); margin-bottom: 2.4rem; }
-
-    .fg { margin-bottom: 1.3rem; }
-
-    .fg label {
-      display: block;
-      font-size: .63rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: .5rem;
-    }
-
-    .fg input, .fg select, .fg textarea {
-      width: 100%;
-      background: rgba(8,8,8,.75);
-      border: 1px solid rgba(200,169,81,.14);
-      color: var(--white);
-      font-family: var(--ff-sans);
-      font-size: .9rem;
-      padding: .88rem 1rem;
-      outline: none;
-      transition: border-color .2s;
-      resize: none;
-      border-radius: 0;
-      -webkit-appearance: none;
-    }
-
-    .fg input::placeholder, .fg textarea::placeholder { color: var(--gray); opacity: .5; }
-    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
-    .fg select option { background: #131313; color: var(--white); }
-
-    .btn-submit {
-      width: 100%;
-      background: var(--gold);
-      color: var(--black);
-      border: none;
-      padding: 1.1rem;
-      font-family: var(--ff-sans);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .25s, transform .2s;
-      margin-top: .4rem;
-    }
-
-    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      padding: 2.8rem 6%;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .footer-logo img { height: 54px; width: auto; object-fit: contain; }
-
-    .footer-center {
-      text-align: center;
-      font-size: .72rem;
-      color: var(--gray);
-      letter-spacing: .08em;
-    }
-
-    .footer-links { display: flex; gap: 2rem; }
-
-    .footer-links a {
-      font-size: .7rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gray);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .footer-links a:hover { color: var(--gold); }
-
-    /* ─── WA FLOAT ─── */
-    .wa-float {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      z-index: 999;
-      background: #25d366;
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,.3);
-      text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(37,211,102,.48); }
-    .wa-float svg { width: 26px; height: 26px; fill: black; }
-
-    /* ─── ANIMAÇÕES ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(26px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal.d1 { transition-delay: .1s; }
-    .reveal.d2 { transition-delay: .2s; }
-    .reveal.d3 { transition-delay: .3s; }
-
-    /* ─── RESPONSIVO ─── */
-    @media (max-width: 960px) {
-      .areas-top { grid-template-columns: 1fr; }
-      .areas-grid { grid-template-columns: 1fr 1fr; }
-      #sobre { grid-template-columns: 1fr; gap: 3rem; }
-      .sobre-img { max-width: 400px; }
-      .contato-inner { grid-template-columns: 1fr; gap: 3rem; }
-      footer { grid-template-columns: 1fr; text-align: center; }
-      .footer-links { justify-content: center; }
-      .footer-logo { display: flex; justify-content: center; }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .areas-grid { grid-template-columns: 1fr; }
-      .hero-title { font-size: 2.6rem; }
-      .hero-actions { flex-direction: column; }
-      .btn-gold, .btn-ghost { text-align: center; }
-      .form-box { padding: 2rem 1.4rem; }
-      #areas, #sobre, #contato { padding: 5rem 5%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cleiton Gabriel Rosa — Advocacia</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+  font-size:16px;
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.7;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:#0b0b0b;
+  padding:1rem 6%;
+  display:flex;
+  justify-content:space-between;
+  z-index:100;
+}
+
+nav a{
+  color:#ccc;
+  text-decoration:none;
+  margin-left:1rem;
+}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:6rem 5% 3rem;
+}
+
+.hero-logo{
+  width:180px;
+  margin-bottom:1.5rem;
+}
+
+.hero-title{
+  font-size:2.2rem;
+  max-width:700px;
+  margin-bottom:1rem;
+}
+
+.hero-body{
+  font-size:1.1rem;
+  max-width:650px;
+  margin-bottom:1.5rem;
+}
+
+.hero-actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:1rem 1.6rem;
+  font-size:1rem;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-primary{
+  background:#d4af37;
+  color:#000;
+}
+
+.btn-outline{
+  border:1px solid #ccc;
+  color:#ccc;
+  background:transparent;
+}
+
+.hero-proof{
+  margin-top:1rem;
+  font-size:.9rem;
+  color:#aaa;
+}
+
+/* ÁREAS */
+#areas{
+  padding:5rem 6%;
+}
+
+.area{
+  margin-bottom:2rem;
+}
+
+.area h3{
+  color:#d4af37;
+}
+
+/* SOBRE */
+#sobre{
+  padding:5rem 6%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+}
+
+.sobre-img{
+  max-width:320px;
+}
+
+.sobre-img img{
+  width:100%;
+  border-radius:10px;
+}
+
+.sobre-text{
+  max-width:520px;
+}
+
+/* CONTATO */
+#contato{
+  padding:5rem 6%;
+}
+
+.channel{
+  display:block;
+  padding:1rem;
+  border:1px solid #333;
+  margin-bottom:1rem;
+  text-decoration:none;
+  color:#fff;
+}
+
+/* FORM */
+.form-box{
+  margin-top:2rem;
+  padding:2rem;
+  background:#111;
+  border:1px solid #333;
+}
+
+.fg{
+  margin-bottom:1rem;
+}
+
+.fg input,.fg textarea,.fg select{
+  width:100%;
+  padding:1rem;
+  font-size:1rem;
+}
+
+.btn-submit{
+  width:100%;
+  padding:1rem;
+  background:#d4af37;
+  border:none;
+}
+
+/* WHATS */
+.wa-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.wa-float svg{
+  width:28px;
+  fill:#fff;
+}
+
+/* CHAT */
+#wa-chat{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+}
+
+.wa-chat-box{
+  width:350px;
+  background:#111;
+  padding:1rem;
+  border-radius:10px;
+  display:none;
+}
+
+.wa-chat-footer{
+  display:flex;
+}
+
+.wa-chat-footer input{
+  flex:1;
+  padding:.8rem;
+  font-size:1rem;
+}
+
+.wa-chat-footer button{
+  padding:.8rem;
+  background:#d4af37;
+  border:none;
+}
+
+@media(max-width:600px){
+.hero-title{font-size:1.7rem;}
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">
-    <img src="logo.png" alt="Cleiton Gabriel Rosa — Advocacia e Consultoria Jurídica" />
-  </a>
-  <ul class="nav-links">
-    <li><a href="#areas">Áreas</a></li>
-    <li><a href="#sobre">O Escritório</a></li>
-    <li><a href="#contato" class="nav-cta">Contato</a></li>
-  </ul>
+<nav>
+<div>Advocacia</div>
+<div>
+<a href="#areas">Áreas</a>
+<a href="#sobre">Sobre</a>
+<a href="#contato">Contato</a>
+</div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <img src="logo.png" alt="Logotipo Cleiton Gabriel Rosa" class="hero-logo" />
-  <h1 class="hero-title">
-    Seus direitos tratados com a seriedade que ele exige<br /><em>— e a estratégia que soluciona.</em>
-  </h1>
-  <p class="hero-body">
-    Atendimento jurídico estratégico e humanizado nas áreas Previdenciária, Trabalhista e Criminal. 
-    Fale agora com um advogado e entenda seus direitos com clareza e segurança.
-  </p>
-  <div class="hero-actions">
-    <a href="https://wa.me/551620162144" target="_blank" class="btn-gold">Falar com advogado agora</a>
-    <a href="#areas" class="btn-ghost">Nossas Áreas de atuação</a>
-  </div>
-  <div class="hero-proof">
-  ✔ Atendimento rápido &nbsp;&nbsp; ✔ Sigilo absoluto &nbsp;&nbsp; ✔ Orientação clara
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-dot"></div>
-    <div class="scroll-track"></div>
-  </div>
-</section>
+<img src="logo.png" class="hero-logo">
 
-<!-- MARQUEE -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">Direito Previdenciário<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Trabalhista<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Criminal<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Consultoria Jurídica<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Civil<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito de Família<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Previdenciário<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Trabalhista<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Criminal<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Consultoria Jurídica<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito Civil<span class="marquee-dot"></span></span>
-    <span class="marquee-item">Direito de Família<span class="marquee-dot"></span></span>
-  </div>
-</div>
+<h1 class="hero-title">
+Seus direitos tratados com seriedade e estratégia
+</h1>
 
-<!-- ÁREAS -->
-<section id="areas">
-  <div class="container">
-    <div class="areas-top">
-      <div class="reveal">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Especialidades</span></div>
-        <h2 class="section-title">Áreas de<br />Atuação</h2>
-      </div>
-      <p class="section-lead reveal d1" style="max-width:420px;padding-bottom:.5rem">
-        Atuação estratégica para proteger seus direitos com segurança jurídica e orientação clara em cada etapa do processo.
-      </p>
-    </div>
+<p class="hero-body">
+Atuação em Direito Previdenciário, Trabalhista e Criminal com atendimento direto e orientação clara.
+</p>
 
-    <div class="areas-grid">
-      <div class="area-card area-featured reveal">
-        <span class="area-num">01</span>
-        <div class="area-name">DIREITO PREVIDENCIÁRIO</div>
-        <p class="area-desc">Conquiste seu benefício com segurança: aposentadorias, pensão por morte, benefício por incapacidade, BPC/LOAS e revisão de benefícios junto ao INSS.</p>
-      </div>
-      <div class="area-card area-featured reveal d1">
-        <span class="area-num">02</span>
-        <div class="area-name">DIREITO TRABALHISTA</div>
-        <p class="area-desc">Proteja o que é seu por direito: atuação em rescisão contratual, horas extras, assédio moral, reconhecimento de vínculo empregatício, FGTS e verbas rescisórias.</p>
-      </div>
-      <div class="area-card area-featured reveal d2">
-        <span class="area-num">03</span>
-        <div class="area-name">DIREITO CRIMINAL</div>
-        <p class="area-desc">Defesa criminal, habeas corpus, liberdade provisória, revisão criminal e acompanhamento em inquéritos policiais com atuação técnica e sigilosa.</p>
-      </div>
-      <div class="area-card reveal">
-        <span class="area-num">04</span>
-        <div class="area-name">CONSULTORIA JURÍDICA</div>
-        <p class="area-desc">Análise de contratos, pareceres jurídicos e orientação sobre riscos legais para pessoas físicas e jurídicas.</p>
-      </div>
-      <div class="area-card reveal d1">
-        <span class="area-num">05</span>
-        <div class="area-name">DIREITO CIVIL</div>
-        <p class="area-desc">Ações de cobrança, responsabilidade civil, questões imobiliárias e reparação de danos com segurança jurídica.</p>
-      </div>
-      <div class="area-card reveal d2">
-        <span class="area-num">06</span>
-        <div class="area-name">DIREITO DE FAMÍLIA</div>
-        <p class="area-desc">Divórcio, guarda de filhos, alimentos, inventário e partilha de bens, conduzidos com discrição e atenção.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre">
-  <div class="sobre-img reveal">
-    <div class="sobre-badge">Advocacia</div>
-    <div class="sobre-frame">
-      <img src="foto.png" alt="Dr. Cleiton Gabriel Rosa" class="foto" />
-    </div>
-    <div class="sobre-corner"></div>
-  </div>
-
-  <div class="sobre-text">
-    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span class="eyebrow-text">O Escritório</span></div>
-    <h2 class="section-title reveal">Advocacia com<br /><em style="font-style:italic;color:var(--gold)">propósito e técnica</em></h2>
-
-    <div class="sobre-oab reveal">⚖️ &nbsp; OAB/SP 538.386</div>
-
-    <p class="reveal">
-      O nosso escritório foi constituido com o compromisso de oferecer assessoria jurídica confiável e acessível, pautada pela ética, pela transparência e pelo respeito ao cliente em todas as etapas do processo.
-    </p>
-    <p class="reveal">
-      Com atuação em diversas áreas do direito, como Previdenciária, Trabalhista, Criminal, cível, dentre outras, o escritório alia conhecimento técnico ao acompanhamento próximo de cada caso, mantendo o cliente informado do início ao fim.
-    </p>
-    <p class="reveal">
-      Mais do que resolver questões jurídicas, nosso trabalho é orientado pela responsabilidade de cuidar de direitos reais, que afetam vidas reais, sempre oferecendo tratamento humanizado aos clientes.
-    </p>
-
-    <div class="valores-row reveal">
-      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Ética</div></div>
-      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Transparência</div></div>
-      <div class="valor"><div class="valor-n">Pilar</div><div class="valor-v">Dedicação</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <div class="contato-inner container">
-    <div>
-      <div class="eyebrow reveal"><div class="eyebrow-line"></div><span class="eyebrow-text">Contato</span></div>
-      <h2 class="section-title reveal">Fale<br /><em style="font-style:italic;color:var(--gold)">conosco</em></h2>
-      <p class="section-lead reveal" style="max-width:380px">
-        Entre em contato para expor seu caso. O atendimento é realizado com atenção, discrição e agilidade.
-      </p>
-
-      <p style="margin-top:1rem;color:var(--text);max-width:360px">
-  O contato mais rápido é pelo WhatsApp. Clique abaixo e fale diretamente com o advogado.
-      </p>
-
-      <div class="contato-channels">
-        <a href="https://wa.me/551620162144" target="_blank" class="channel reveal">
-          <span class="channel-icon">💬</span>
-          <div>
-            <div class="channel-label">WhatsApp</div>
-            <div class="channel-value">(16) 2016-2144</div>
-          </div>
-          <span class="channel-arrow">→</span>
-        </a>
-        <a href="mailto:cleitonrosa@adv.oabsp.org.br" class="channel reveal d1">
-          <span class="channel-icon">✉️</span>
-          <div>
-            <div class="channel-label">E-mail</div>
-            <div class="channel-value">cleitonrosa@adv.oabsp.org.br</div>
-          </div>
-          <span class="channel-arrow">→</span>
-        </a>
-        <a href="https://instagram.com/cleitongabriel.adv" target="_blank" class="channel reveal d2">
-          <span class="channel-icon">📸</span>
-          <div>
-            <div class="channel-label">Instagram</div>
-            <div class="channel-value">@cleitongabriel.adv</div>
-          </div>
-          <span class="channel-arrow">→</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="form-box reveal d1">
-      <div class="form-box-title">Prefere escrever? Envie sua mensagem</div>
-      <div class="form-box-sub">Preencha abaixo — o retorno será feito pelo WhatsApp.</div>
-      <form onsubmit="handleForm(event)">
-        <div class="fg">
-          <label>Nome completo</label>
-          <input type="text" placeholder="Seu nome" required />
-        </div>
-        <div class="fg">
-          <label>WhatsApp</label>
-          <input type="tel" placeholder="(00) 0 0000-0000" />
-        </div>
-        <div class="fg">
-          <label>Área de interesse</label>
-          <select>
-            <option value="">Selecione...</option>
-            <option>Direito Previdenciário (INSS)</option>
-            <option>Direito Trabalhista</option>
-            <option>Direito Criminal</option>
-            <option>Direito Civil</option>
-            <option>Direito de Família</option>
-            <option>Consultoria Jurídica</option>
-            <option>Outro</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Descreva brevemente seu caso</label>
-          <textarea rows="4" placeholder="Conte-nos um pouco sobre a situação..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Enviar pelo WhatsApp →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <img src="logo.png" alt="Cleiton Gabriel Rosa Advocacia" />
-  </div>
-  <div class="footer-center">
-    © 2025 · Cleiton Gabriel Rosa · OAB/SP 538.386 · Todos os direitos reservados
-  </div>
-  <div class="footer-links">
-    <a href="#areas">Áreas</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-</footer>
-
-<!-- WhatsApp Float -->
-<a href="https://wa.me/551620162144" class="wa-float" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.535 5.876L.057 23.43a.5.5 0 0 0 .612.612l5.645-1.479A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.042-1.374l-.361-.214-3.741.98.998-3.648-.235-.374A9.865 9.865 0 0 1 2.118 12C2.118 6.534 6.534 2.118 12 2.118S21.882 6.534 21.882 12 17.466 21.882 12 21.882z"/>
-  </svg>
+<div class="hero-actions">
+<a href="https://wa.me/551620162144" class="btn btn-primary" target="_blank">
+Falar com advogado
 </a>
 
-<script>
-  // Nav shrink on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
+<a href="#contato" class="btn btn-outline">
+Enviar mensagem
+</a>
+</div>
 
-  // Scroll reveal
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<div class="hero-proof">
+✔ Atendimento rápido ✔ Sigilo ✔ Clareza jurídica
+</div>
+</section>
 
-  // Form → WhatsApp
-  function handleForm(e) {
-    e.preventDefault();
-    const f    = e.target;
-    const nome = f.querySelector('input[type=text]').value;
-    const tel  = f.querySelector('input[type=tel]').value;
-    const area = f.querySelector('select').value;
-    const msg  = f.querySelector('textarea').value;
-    const text = `Olá, gostaria de falar com um advogado sobre meu caso.
+<section id="areas">
+<h2>Áreas de atuação</h2>
 
-Nome: ${nome}
-Área: ${area || 'Não informada'}
-Telefone: ${tel || 'Não informado'}
+<div class="area">
+<h3>Previdenciário</h3>
+<p>Aposentadorias, INSS e benefícios.</p>
+</div>
 
-${msg}`;
-    window.open(`https://wa.me/551620162144?text=${encodeURIComponent(text)}`, '_blank');
-  }
-</script>
+<div class="area">
+<h3>Trabalhista</h3>
+<p>Direitos trabalhistas e ações.</p>
+</div>
 
-<a href="javascript:void(0)" class="wa-float" onclick="openChat()"></a>
+<div class="area">
+<h3>Criminal</h3>
+<p>Defesa técnica e acompanhamento.</p>
+</div>
+</section>
 
+<section id="sobre">
+<div class="sobre-img">
+<img src="foto.png">
+</div>
+
+<div class="sobre-text">
+<h2>Sobre o escritório</h2>
+<p>Atuação com ética, transparência e responsabilidade.</p>
+<p>Cada caso é tratado de forma individual e estratégica.</p>
+</div>
+</section>
+
+<section id="contato">
+<h2>Contato</h2>
+
+<a href="https://wa.me/551620162144" class="channel">
+WhatsApp: (16) 2016-2144
+</a>
+
+<a href="mailto:cleitonrosa@adv.oabsp.org.br" class="channel">
+E-mail: cleitonrosa@adv.oabsp.org.br
+</a>
+
+<div class="form-box">
+
+<p style="margin-bottom:1rem;color:#aaa;">
+✔ Resposta em até 24h ✔ Sigilo garantido ✔ Análise inicial
+</p>
+
+<form id="form">
+
+<div class="fg">
+<input type="text" id="nome" placeholder="Nome" required>
+</div>
+
+<div class="fg">
+<input type="email" id="email" placeholder="Email" required>
+</div>
+
+<div class="fg">
+<select id="area" required>
+<option value="">Área do caso</option>
+<option>Previdenciário</option>
+<option>Trabalhista</option>
+<option>Criminal</option>
+</select>
+</div>
+
+<div class="fg">
+<textarea id="msg" placeholder="Descreva seu caso" required></textarea>
+</div>
+
+<button class="btn-submit">Enviar para análise</button>
+
+</form>
+
+</div>
+</section>
+
+<!-- BOTÃO -->
+<div class="wa-float" onclick="openChat()">
+<svg viewBox="0 0 24 24">
+<path d="M17.472 14.382..."/>
+</svg>
+</div>
+
+<!-- CHAT -->
 <div id="wa-chat">
-  <div class="wa-chat-box" id="chatBox">
-    <div class="wa-chat-header">
-      <strong>Atendimento Jurídico</strong>
-      <button onclick="closeChat()">×</button>
-    </div>
+<div class="wa-chat-box" id="chatBox">
 
-    <div class="wa-chat-body" id="chatBody">
-      <!-- mensagens entram via JS -->
-    </div>
+<p>Olá! Como posso te ajudar?</p>
 
-    <div class="wa-chat-footer">
-      <input type="text" id="chatInput" placeholder="Digite sua dúvida..." />
-      <button onclick="sendToWhats()">Enviar</button>
-    </div>
+<div class="wa-chat-footer">
+<input type="text" id="chatMsg">
+<button onclick="send()">Enviar</button>
+</div>
 
-    <div class="wa-chat-direct">
-      <button onclick="goDirectWhats()">Ir direto ao WhatsApp</button>
-    </div>
-  </div>
+</div>
 </div>
 
 <script>
-  const chatBox = document.getElementById("chatBox");
-  const chatBody = document.getElementById("chatBody");
+function openChat(){
+document.getElementById("chatBox").style.display="block";
+}
 
-  function addMessage(text) {
-    const msg = document.createElement("div");
-    msg.className = "msg bot";
-    msg.innerText = text;
-    chatBody.appendChild(msg);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
+function send(){
+let msg=document.getElementById("chatMsg").value;
+window.open("https://wa.me/551620162144?text="+msg);
+}
 
-  function showTyping(callback) {
-    const typing = document.createElement("div");
-    typing.className = "typing";
-    typing.innerText = "Digitando...";
-    chatBody.appendChild(typing);
+document.getElementById("form").addEventListener("submit",function(e){
+e.preventDefault();
 
-    setTimeout(() => {
-      typing.remove();
-      callback();
-    }, 1200);
-  }
+let nome=document.getElementById("nome").value;
+let email=document.getElementById("email").value;
+let area=document.getElementById("area").value;
+let msg=document.getElementById("msg").value;
 
-  // abertura automática
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      chatBox.style.display = "block";
+let body=`Nome: ${nome}%0AEmail: ${email}%0AÁrea: ${area}%0AMensagem: ${msg}`;
 
-      showTyping(() => {
-        addMessage("Olá! 👋");
-        showTyping(() => {
-          addMessage("Qual a sua dúvida jurídica? Posso te ajudar.");
-        });
-      });
-
-    }, 2500);
-  });
-
-  function closeChat() {
-    chatBox.style.display = "none";
-  }
-
-  function openChat() {
-    chatBox.style.display = "block";
-  }
-
-  function sendToWhats() {
-    const input = document.getElementById("chatInput");
-    const text = input.value.trim();
-
-    if (!text) return;
-
-    const message = `Olá, gostaria de tirar uma dúvida:\n\n${text}`;
-    const url = `https://wa.me/551620162144?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-  }
-
-  function goDirectWhats() {
-    const url = `https://wa.me/551620162144?text=${encodeURIComponent("Olá, gostaria de falar com um advogado.")}`;
-    window.open(url, "_blank");
-  }
+window.location.href=`mailto:cleitonrosa@adv.oabsp.org.br?subject=Novo cliente&body=${body}`;
+});
 </script>
+
 </body>
 </html>
